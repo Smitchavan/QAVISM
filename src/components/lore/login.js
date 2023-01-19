@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Formik } from "formik";
-import { Form, Input, Label, Button, MargD } from "../../style";
+import { Form, Input, Label, Button, MargD, Dom } from "../../style";
 import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -60,7 +61,9 @@ export default class login extends Component {
   render() {
     return (
       <div>
-        {this.state.user && <Navigate to="/" replace={this.state.isLoggedIn} />}
+        {this.state.user && (
+          <Navigate to="/home" replace={this.state.isLoggedIn} />
+        )}
         <ToastContainer />{" "}
         <Formik
           initialValues={this.initialValues}
@@ -111,7 +114,9 @@ export default class login extends Component {
               <Button type="submit" value="Submit" disabled={isSubmitting}>
                 Submit
               </Button>
-              <Link to="/forgotPassword">Forgot Password?</Link>
+              <Dom>
+                <Link to="/forgotPassword">Forgot Password?</Link>
+              </Dom>
             </Form>
           )}
         </Formik>

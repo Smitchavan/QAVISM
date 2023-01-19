@@ -21,7 +21,7 @@ export default class App extends Component {
       <Router>
         <Routes>
           <Route
-            path="/"
+            path="/home"
             element={
               <div>
                 <Nav></Nav>
@@ -37,7 +37,7 @@ export default class App extends Component {
             element={<ForgotPassword></ForgotPassword>}
           ></Route>
           <Route path="/newProject" element={<Project></Project>}></Route>
-          <Route path="/testcase" element={<Testcase></Testcase>}></Route>
+          <Route path="/home/testcase" element={<Testcase></Testcase>}></Route>
           <Route path="/testset" element={<Testset></Testset>}></Route>
           <Route path="/viewcases" element={<Viewcases></Viewcases>}></Route>
           <Route path="/issues" element={<Issues></Issues>}></Route>

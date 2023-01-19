@@ -48,7 +48,7 @@ export default class nav extends Component {
                         Create Test Case
                       </MenuItem>
                     </Link>
-                    <Link to="testset">
+                    <Link to="/testset">
                       <MenuItem onClick={popupState.close}>
                         Create Test Set
                       </MenuItem>

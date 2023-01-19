@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Nav = styled.nav`
   font-size: 18px;
@@ -26,6 +27,7 @@ export const MargR = styled.div`
 `;
 export const Form = styled.form`
   position: absolute;
+
   top: 50%;
   left: 50%;
   width: 400px;
@@ -100,3 +102,136 @@ export const Button = styled.button`
     color: #2c5777;
   }
 `;
+
+export const Dom = styled.div`
+  position: relative;
+
+  display: flex;
+  box-sizing: border-box;
+  > ${Link} {
+    margin-left: 100px;
+    margin-top: 25px;
+    text-decoration: none;
+  }
+`;
+
+export const TestForm = styled.form`
+  margin-top: 5%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 100%;
+  outline: none;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
+  color: #666;
+`;
+export const TestInput = styled.input`
+  width: 100%;
+  padding: 16px 8px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+`;
+export const TestButton = styled.button`
+  background-color: #8ebf42;
+  color: white;
+  padding: 14px 0;
+  margin-bottom: 5%;
+  border: none;
+  cursor: grabbing;
+  width: 100%;
+  :hover {
+    opacity: 0.8;
+  }
+`;
+
+export const TestDiv = styled.div`
+  position: relative;
+  margin-bottom: 5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+export const TestSelect = styled.select`
+  background-color: #0563af;
+  color: white;
+  padding: 12px;
+  width: 250px;
+  margin-top: 0%;
+  margin-left: 2%;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  ::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  :hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+`;
+export const OL = styled.ol`
+  counter-reset: li;
+  list-style: none;
+  margin-left: 2%;
+  width: 30%;
+  padding: 0;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+`;
+
+export const LI = styled.li`
+  position: relative;
+  display: block;
+  padding: 0.4em 0.4em 0.4em 2em;
+  margin: 0.5em 0;
+  background: #dad2ca;
+  color: #444;
+  text-decoration: none;
+  border-radius: 0.3em;
+  transition: 0.3s ease-out;
+  :hover {
+    background: #e9e4e0;
+  }
+  :hover:before {
+    transform: rotate(360deg);
+  }
+  :before {
+    content: counter(li);
+    counter-increment: "+";
+    position: absolute;
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background: #f9dd94;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: 0.3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all 0.3s ease-out;
+  }
+`;
+
+// export const Container = styled.div`
+//   display: grid;
+// `;

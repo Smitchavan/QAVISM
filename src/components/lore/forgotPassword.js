@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Formik } from "formik";
-import { Form, Input, Label, Button, MargD } from "../../style";
+import { Form, Input, Label, Button, MargD, Dom } from "../../style";
 import axios from "axios";
 import { Link } from "react-router-dom";
 export default class forgotPassword extends Component {
@@ -59,7 +59,9 @@ export default class forgotPassword extends Component {
             /* and other goodies */
           }) => (
             <Form onSubmit={handleSubmit} class="login-box">
-              PLEASE RESET YOUR PASSWORD
+              <MargD>
+                <center>PLEASE RESET YOUR PASSWORD</center>
+              </MargD>{" "}
               <MargD>
                 <Label for="name">Email</Label>
                 <Input
@@ -91,7 +93,9 @@ export default class forgotPassword extends Component {
               <Button type="submit" value="Submit" disabled={isSubmitting}>
                 Submit
               </Button>
-              <Link to="/login">Login Page</Link>
+              <Dom>
+                <Link to="/login">Login Page</Link>
+              </Dom>
             </Form>
           )}
         </Formik>
