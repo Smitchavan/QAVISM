@@ -12,6 +12,7 @@ import {
   MargD,
   OL,
   LI,
+  Absolute,
 } from "../../style";
 
 class testcase extends Component {
@@ -105,7 +106,7 @@ class testcase extends Component {
       );
 
       console.log("result", result.data.status);
-      if (result.data.status === "Started") {
+      if (result.status === 200) {
         toast.success("Test Case Uploaded Successfully");
       }
 
@@ -203,7 +204,7 @@ class testcase extends Component {
             </TestButton>
           </TestForm>
         </div>
-        <div>
+        <Absolute>
           {this.state.stepArr.map((value) => (
             <OL>
               <LI>
@@ -218,7 +219,7 @@ class testcase extends Component {
               </LI>
             </OL>
           ))}
-        </div>{" "}
+        </Absolute>{" "}
       </div>
     );
   }

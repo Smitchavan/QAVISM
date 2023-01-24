@@ -38,6 +38,19 @@ export const Form = styled.form`
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
 `;
+export const AccForm = styled.form`
+  position: absolute;
+
+  top: 25%;
+  left: 80%;
+  width: 200px;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+`;
 export const Input = styled.input`
   width: 100%;
   padding: 12px 10px;
@@ -131,6 +144,7 @@ export const TestInput = styled.input`
   width: 100%;
   padding: 16px 8px;
   margin: 8px 0;
+  margin-bottom: 30px;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -146,6 +160,15 @@ export const TestButton = styled.button`
   :hover {
     opacity: 0.8;
   }
+`;
+
+export const Absolute = styled.div`
+  position: absolute;
+  top: 90px;
+  right: 70px;
+  width: 800px;
+  height: 800px;
+  border: 3px solid cadetblue;
 `;
 
 export const TestDiv = styled.div`
