@@ -3,13 +3,18 @@ import { Link } from "react-router-dom";
 
 export const Nav = styled.nav`
   font-size: 18px;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     260deg,
     rgb(42, 244, 152, 255) 0%,
     #3498db 100%
-  );
+  ); */
+  width: 98%;
+  margin-top: 4px;
+
+  margin-left: 18px;
+  border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  padding-bottom: 10px;
+  padding-bottom: 14px;
   @media (min-width: 768px) {
     display: flex;
     justify-content: flex-end;
@@ -168,7 +173,8 @@ export const Absolute = styled.div`
   right: 70px;
   width: 800px;
   height: 800px;
-  border: 3px solid cadetblue;
+  border: 3px double cadetblue;
+  border-radius: 5px;
 `;
 
 export const TestDiv = styled.div`
@@ -186,6 +192,7 @@ export const TestSelect = styled.select`
   margin-top: 0%;
   margin-left: 2%;
   border: none;
+  border-radius: 20px;
   font-size: 20px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
   -webkit-appearance: button;

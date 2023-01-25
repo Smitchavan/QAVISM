@@ -7,11 +7,20 @@ import "react-toastify/dist/ReactToastify.css";
 //import { registered } from "../../actions/registerAction";
 // import { setRegister } from "../../store/slices/registeredSlice";
 import { Form, Input, Label, Button, MargD } from "../../style";
+import { Navigate } from "react-router-dom";
 // import { connect } from "react-redux";
 class register extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", email: "", password: "", accesslevel: "" };
+    this.init = {
+      name: "",
+      email: "",
+      password: "",
+      accesslevel: "",
+    };
+    this.state = {
+      submitted: false,
+    };
   }
 
   validate = (values) => {
@@ -41,7 +50,8 @@ class register extends Component {
         "http://localhost:5000/api/register",
         values
       );
-      toast.success(result.data);
+      console.log(result);
+      toast.success(`User Registered With Email ${result.data.email}`);
     } catch (error) {
       // console.log(error.response.data);
       toast.error(error.response.data);
@@ -53,6 +63,10 @@ class register extends Component {
     setTimeout(() => {
       setSubmitting(false);
     }, 400);
+    setTimeout(() => {
+      this.setState({ submitted: true });
+    }, 2000);
+
     // Object.keys(values).forEach((field) => {
     //   setFieldValue(field, "");
     // });
@@ -62,11 +76,14 @@ class register extends Component {
     // console.log("payload -", this.state);
   };
   render() {
+    let { submitted } = this.state;
     return (
       <div>
         <ToastContainer />
+        {submitted === true && <Navigate to="/login" replace={true} />}
+
         <Formik
-          initialValues={this.state}
+          initialValues={this.init}
           validate={(values) => this.validate(values)}
           onSubmit={(values, { setSubmitting }) =>
             this.handleSubmit(values, setSubmitting)
@@ -126,7 +143,7 @@ class register extends Component {
               </MargD>
               <MargD>
                 {" "}
-                <Label for="accesslevel">Accesslevel </Label>
+                <Label for="accesslevel">Accesslevel :-</Label>
                 <select
                   id="Accesslevel"
                   name="accesslevel"

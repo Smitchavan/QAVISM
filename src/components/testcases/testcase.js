@@ -3,6 +3,7 @@ import withNavigateHook from "../../useNav";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 import {
   TestForm,
   TestInput,
@@ -47,7 +48,7 @@ class testcase extends Component {
       } catch (error) {
         console.log("check Error");
       }
-
+      this.refreshPage();
       this.empty();
     }
   };
@@ -133,18 +134,31 @@ class testcase extends Component {
         <div>
           <TestForm>
             {" "}
-            <label>Add Steps</label>
-            <TestInput
-              type="text"
-              id="steps"
-              name="steps"
-              value={this.state.steps}
-              onChange={this.handlechange}
-            ></TestInput>
-            <TestButton onClick={this.handlestep}>
-              <h1>Add Step</h1>
-            </TestButton>
-            <label>Test Case Name</label>
+            <label>
+              <h2>Add Steps</h2>
+            </label>
+            <div>
+              {" "}
+              <TestInput
+                type="text"
+                id="steps"
+                name="steps"
+                value={this.state.steps}
+                onChange={this.handlechange}
+              ></TestInput>
+              <button
+                type="button"
+                class="btn btn-success"
+                onClick={this.handlestep}
+                style={{ marginLeft: "700px", marginBottom: "8px" }}
+              >
+                +
+              </button>
+            </div>
+            <label>
+              {" "}
+              <h2> ADD Test Case Name</h2>
+            </label>
             <TestInput
               type="text"
               id="testname"
@@ -153,52 +167,60 @@ class testcase extends Component {
               onChange={this.handlechange}
             ></TestInput>
             <MargD></MargD>
-            <center>
-              <div>
+            <div>
+              {" "}
+              <TestDiv>
+                <label>
+                  {" "}
+                  <h3>Add Status :--------</h3>
+                </label>
+
+                <TestSelect
+                  id="AddStatus"
+                  name="status"
+                  value={this.state.status}
+                  onChange={this.handlechange}
+                >
+                  <option value="">Select</option>
+                  <option value="Started">Started</option>
+                  <option value="Completed">Completed</option>
+                </TestSelect>
+              </TestDiv>
+            </div>
+            <TestDiv>
+              {" "}
+              <label>
                 {" "}
-                <TestDiv>
-                  Add Status
-                  <TestSelect
-                    id="AddStatus"
-                    name="status"
-                    value={this.state.status}
-                    onChange={this.handlechange}
-                  >
-                    <option value="">Select</option>
-                    <option value="Started">Started</option>
-                    <option value="Completed">Completed</option>
-                  </TestSelect>
-                </TestDiv>
-              </div>
-
-              <TestDiv>
-                Test Severity
-                <TestSelect
-                  id="testlevel"
-                  name="testlevel"
-                  value={this.state.testlevel}
-                  onChange={this.handlechange}
-                >
-                  <option value="">Select</option>
-                  <option value="High">High</option>
-                  <option value="Low">Low</option>
-                </TestSelect>
-              </TestDiv>
-
-              <TestDiv>
-                Assign to TestSet
-                <TestSelect
-                  id="assignProject"
-                  name="assigntoproject"
-                  value={this.state.assigntoproject}
-                  onChange={this.handlechange}
-                >
-                  <option value="">Select</option>
-                  <option value="emtity">emtity</option>
-                </TestSelect>
-              </TestDiv>
-              <span></span>
-            </center>
+                <h3>Test Severity :------</h3>
+              </label>
+              <TestSelect
+                id="testlevel"
+                name="testlevel"
+                value={this.state.testlevel}
+                onChange={this.handlechange}
+              >
+                <option value="">Select</option>
+                <option value="High">High</option>
+                <option value="Low">Low</option>
+              </TestSelect>
+            </TestDiv>
+            <TestDiv>
+              {" "}
+              <label>
+                {" "}
+                <h3> Assign to TestSet :</h3>
+              </label>
+              <TestSelect
+                id="assignProject"
+                name="assigntoproject"
+                value={this.state.assigntoproject}
+                onChange={this.handlechange}
+              >
+                <option value="">Select</option>
+                <option value="emtity">emtity</option>
+              </TestSelect>
+            </TestDiv>
+            <span></span>
             <TestButton onClick={this.handleSubmit}>
               <h1>Add Test Case</h1>
             </TestButton>
@@ -206,20 +228,26 @@ class testcase extends Component {
         </div>
         <Absolute>
           {this.state.stepArr.map((value) => (
-            <OL>
-              <LI>
-                <div
-                  key={value._id}
-                  onClick={() => {
-                    this.deletestep(value._id);
-                  }}
-                >
-                  {value.steps}
-                </div>
-              </LI>
-            </OL>
+            <div>
+              <OL>
+                <LI>
+                  <div
+                    key={value._id}
+                    onClick={() => {
+                      this.deletestep(value._id);
+                    }}
+                  >
+                    {value.steps}
+                  </div>
+                </LI>
+              </OL>
+            </div>
           ))}
         </Absolute>{" "}
+        <Link to="/home">BACK TO HOME</Link>
+        <div style={{ marginTop: "8px" }}>
+          # You can find Your Test Cases in TestCases Form
+        </div>
       </div>
     );
   }

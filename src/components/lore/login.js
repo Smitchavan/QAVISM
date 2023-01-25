@@ -61,6 +61,11 @@ export default class login extends Component {
   render() {
     return (
       <div>
+        <div>
+          <center>
+            <h2>Login Page</h2>
+          </center>
+        </div>
         {this.state.user && (
           <Navigate to="/home" replace={this.state.isLoggedIn} />
         )}

@@ -24,7 +24,7 @@ export default class nav extends Component {
                     Project
                   </Button>{" "}
                   <Menu {...bindMenu(popupState)}>
-                    <Link to="/newProject">
+                    <Link to="/newProject" style={{ textDecoration: "none" }}>
                       <MenuItem onClick={popupState.close}>
                         {" "}
                         Create Project
@@ -43,17 +43,17 @@ export default class nav extends Component {
                     Test Cases
                   </Button>
                   <Menu {...bindMenu(popupState)}>
-                    <Link to="testcase">
+                    <Link to="testcase" style={{ textDecoration: "none" }}>
                       <MenuItem onClick={popupState.close}>
                         Create Test Case
                       </MenuItem>
                     </Link>
-                    <Link to="/testset">
+                    <Link to="/testset" style={{ textDecoration: "none" }}>
                       <MenuItem onClick={popupState.close}>
                         Create Test Set
                       </MenuItem>
                     </Link>
-                    <Link to="viewcases">
+                    <Link to="/viewcases" style={{ textDecoration: "none" }}>
                       <MenuItem onClick={popupState.close}>View Cases</MenuItem>
                     </Link>
                   </Menu>
@@ -70,12 +70,12 @@ export default class nav extends Component {
                   </Button>
                   <Menu {...bindMenu(popupState)}>
                     {" "}
-                    <Link to="issues">
+                    <Link to="issues" style={{ textDecoration: "none" }}>
                       <MenuItem onClick={popupState.close}>
                         Create Issues
                       </MenuItem>{" "}
                     </Link>
-                    <Link to="viewissues">
+                    <Link to="viewissues" style={{ textDecoration: "none" }}>
                       {" "}
                       <MenuItem onClick={popupState.close}>
                         View Issues
@@ -86,9 +86,16 @@ export default class nav extends Component {
               )}
             </PopupState>
           </MargR>
-          <button>
-            <Link to="/login">logout</Link>
-          </button>
+          <Link to="/login">
+            {" "}
+            <button
+              type="button"
+              class="btn btn-danger"
+              style={{ marginRight: "5px" }}
+            >
+              Logout
+            </button>
+          </Link>
         </Nav>
       </div>
     );

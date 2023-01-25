@@ -21,6 +21,7 @@ import {
 import "react-responsive-modal/styles.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 export default class testset extends Component {
   constructor(props) {
@@ -83,7 +84,7 @@ export default class testset extends Component {
     let testsetid = this.state.testsetdata._id;
     // console.log(data._id);
     if (this.state.testsetdata._id === undefined) {
-      alert("TESTSET is not Added");
+      alert("PlEASE !!!! SET TESTSET Name First");
     } else {
       try {
         let Result = await axios.post(
@@ -207,6 +208,7 @@ export default class testset extends Component {
             </nav>
           </Box>
         </AccForm>
+        <Link to="/home">BACK TO HOME</Link>
       </div>
     );
   }
